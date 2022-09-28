@@ -1,0 +1,21 @@
+.NewItem__container {
+}
+.NewItem__container form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 2rem;
+  border: 1px solid black;
+  padding: 10px;
+}
+.NewItem__container form .Count {
+  width: 50px;
+}
+.NewItem__container form .Price__container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.NewItem__container form .Price__container input {
+  width: 50px;
+}
