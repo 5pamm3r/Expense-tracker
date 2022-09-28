@@ -1,0 +1,22 @@
+.Activos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.Activos .Title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.Activos .Activos__container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+  font-size: 2rem;
+}
+.Activos .Activos__container .Subtitles__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+  font-weight: bold;
+}
