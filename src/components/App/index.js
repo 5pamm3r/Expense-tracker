@@ -1,11 +1,11 @@
 import React from "react";
-import Activos from "../Activos";
-import ItemActivo from "../ItemActivo";
+import Pasivos from '../Pasivos'
+import ItemPasivo from "../ItemPasivo";
 import NewItem from "../NewItem";
-import Pasivos from "../Pasivos/Pasivos";
 import useRegister from "./useRegister";
 import CategoryProgress from "../CategoryProgress";
 import Graphics from "../Graphics";
+
 function App() {
   const {
     error,
@@ -22,11 +22,11 @@ function App() {
   } = useRegister();
   return (
     <div className="App">
-      <Activos
+      <Pasivos
         items={items}
         total={total}
         render={(item) => (
-          <ItemActivo
+          <ItemPasivo
             key={Math.floor(Math.random() * 1000000)}
             date={item.date}
             detail={item.detail}
@@ -56,8 +56,7 @@ function App() {
             />
           )}
         />
-      </Activos>
-      <Pasivos />
+      </Pasivos>
     </div>
   );
 }

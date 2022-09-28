@@ -1,4 +1,5 @@
 import React from 'react'
+import './Graphics.css'
 
 function Graphics({ categories, render }) {
   const [showGraphics, setShowGraphics] = React.useState(false)
@@ -8,7 +9,7 @@ function Graphics({ categories, render }) {
   return (
     <div className='Graphics__container'>
       <button onClick={onClick}>Click Me</button>
-      <div>
+      <div className='ItemsGraphics__container'>
         {!!showGraphics && categories.map(render)}
       </div>
     </div>
