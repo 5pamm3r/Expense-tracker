@@ -20,3 +20,14 @@
   gap: 30px;
   font-weight: bold;
 }
+.Pasivos .Balance__container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 10px;
+  align-items: center;
+}
+.Pasivos .IncomeExpense__container {
+  display: flex;
+  justify-content: space-between;
+}
