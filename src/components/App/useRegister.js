@@ -1,34 +1,48 @@
 import React from "react";
+import marketIcon from '../../assets/icons/market.png';
+import junkfoodIcon from '../../assets/icons/junkfood.png';
+import personalIcon from '../../assets/icons/personal.png';
+import healthyIcon from '../../assets/icons/healthy.png';
+import clothesIcon from '../../assets/icons/clothes.png';
+import entertainmentIcon from '../../assets/icons/entertainment.png';
+import othersIcon from '../../assets/icons/others.png';
 
 function useRegister() {
   const categ = [
     {
       value: "market",
       count: 0,
+      image: marketIcon,
     },
     {
       value: "junk-food",
       count: 0,
+      image: junkfoodIcon,
     },
     {
       value: "personal",
       count: 0,
+      image: personalIcon,
     },
     {
       value: "healthy",
       count: 0,
+      image: healthyIcon,
     },
     {
       value: "clothes",
       count: 0,
+      image: clothesIcon,
     },
     {
       value: "entertainment",
       count: 0,
+      image: entertainmentIcon,
     },
     {
       value: "others",
       count: 0,
+      image: othersIcon,
     },
   ];
   const [items, setItems] = React.useState([]);
@@ -38,6 +52,7 @@ function useRegister() {
   const [price, setPrice] = React.useState("");
   const [error, setError] = React.useState(false);
   const [categories, setCategories] = React.useState(categ);
+  const [categoryImg, setCategoryImg] = React.useState('')
 
   React.useEffect(() => {
     //mejorar
@@ -58,6 +73,7 @@ function useRegister() {
         date: date,
         detail: detail,
         category: category,
+        categoryImg: categoryImg,
         price: parseInt(price),
       });
       categories.forEach((el) => {
@@ -83,11 +99,22 @@ function useRegister() {
   };
   const onChangeCategory = (e) => {
     setCategory(e.target.value);
+    selectCategoryImg(e.target.value)
     setError(false);
   };
   const onChangePrice = (e) => {
     setPrice(e.target.value);
   };
+  const selectCategoryImg = (category) => {
+    categories.forEach(e=>{
+      if(e.value === category) {
+        setCategoryImg(e.image)
+      }
+    })
+  }
+  // const onDelete = (id) => {
+  //   const index = items.findIndex(e=>e.)
+  // }
   return {
     error,
     onSubmit,
@@ -100,6 +127,7 @@ function useRegister() {
     detail,
     categories,
     price,
+    categoryImg
   };
 }
 
