@@ -28,6 +28,7 @@ function App() {
         render={(item) => (
           <ItemPasivo
             key={Math.floor(Math.random() * 1000000)}
+            image={item.categoryImg}
             date={item.date}
             detail={item.detail}
             category={item.category}
@@ -52,7 +53,7 @@ function App() {
             <CategoryProgress
               key={cat.value}
               progressName={cat.value}
-              progressValue={(cat.count * 100) / total}
+              progressValue={(cat.count * 100) / total || 0}
             />
           )}
         />
