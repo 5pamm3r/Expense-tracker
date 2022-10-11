@@ -8,7 +8,7 @@ function Graphics({ categories, render }) {
   }
   return (
     <div className='Graphics__container'>
-      <button onClick={onClick}>Click Me</button>
+      <button onClick={onClick} className='Graphics-button'>View Graphics</button>
       <div className='ItemsGraphics__container'>
         {!!showGraphics && categories.map(render)}
       </div>
