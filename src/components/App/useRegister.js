@@ -1,63 +1,27 @@
 import React from "react";
-import marketIcon from '../../assets/icons/market.png';
-import junkfoodIcon from '../../assets/icons/junkfood.png';
-import personalIcon from '../../assets/icons/personal.png';
-import healthyIcon from '../../assets/icons/healthy.png';
-import clothesIcon from '../../assets/icons/clothes.png';
-import entertainmentIcon from '../../assets/icons/entertainment.png';
-import othersIcon from '../../assets/icons/others.png';
+import { CATEGORIES } from "../Categories";
+
 
 function useRegister() {
-  const categ = [
-    {
-      value: "market",
-      count: 0,
-      image: marketIcon,
-    },
-    {
-      value: "junk-food",
-      count: 0,
-      image: junkfoodIcon,
-    },
-    {
-      value: "personal",
-      count: 0,
-      image: personalIcon,
-    },
-    {
-      value: "healthy",
-      count: 0,
-      image: healthyIcon,
-    },
-    {
-      value: "clothes",
-      count: 0,
-      image: clothesIcon,
-    },
-    {
-      value: "entertainment",
-      count: 0,
-      image: entertainmentIcon,
-    },
-    {
-      value: "others",
-      count: 0,
-      image: othersIcon,
-    },
-  ];
+  
   const [items, setItems] = React.useState([]);
   const [total, setTotal] = React.useState(0);
   const [detail, setDetail] = React.useState("");
   const [category, setCategory] = React.useState("");
   const [price, setPrice] = React.useState("");
   const [error, setError] = React.useState(false);
-  const [categories, setCategories] = React.useState(categ);
+  const [categories, setCategories] = React.useState(CATEGORIES);
   const [categoryImg, setCategoryImg] = React.useState('')
+  const [income, setIncome] = React.useState(0)
+  const [expense, setExpense] = React.useState(0)
+  const [statusSelected, setStatusSelected] = React.useState('')
 
   React.useEffect(() => {
     //mejorar
-    setTotal(items.reduce((prev, current) => prev + current.price, 0));
-  }, [items]);
+    totalIncome()
+    totalExpense()
+    setTotal(income - expense);
+  }, [items, income, expense]);
 
   const date = new Date().toLocaleString("es-ES", {
     // weekday: "short",
@@ -75,6 +39,7 @@ function useRegister() {
         category: category,
         categoryImg: categoryImg,
         price: parseInt(price),
+        status: statusSelected
       });
       categories.forEach((el) => {
         if (el.value === category) {
@@ -87,7 +52,6 @@ function useRegister() {
       setItems(newArr);
       setDetail("");
       setPrice("");
-      console.log(categories);
       document.querySelector("#category").value = "DEFAULT";
       setError(false);
     } else {
@@ -112,6 +76,30 @@ function useRegister() {
       }
     })
   }
+  const onIncome = () => {
+    setStatusSelected('income')
+  }
+  const onExpense = () => {
+    setStatusSelected('expense')
+  }
+  const totalIncome = () => {
+    let count = 0;
+    items.forEach(e=>{
+      if(e.status === 'income'){
+        count += e.price;
+      }
+    })
+    setIncome(count)
+  }
+  const totalExpense = () => {
+    let count = 0;
+    items.forEach(e=>{
+      if(e.status === 'expense'){
+        count += e.price;
+      }
+    })
+    setExpense(count)
+  }
   // const onDelete = (id) => {
   //   const index = items.findIndex(e=>e.)
   // }
@@ -126,8 +114,13 @@ function useRegister() {
     date,
     detail,
     categories,
+    category,
     price,
-    categoryImg
+    categoryImg,
+    onIncome,
+    onExpense,
+    income,
+    expense,
   };
 }
 
