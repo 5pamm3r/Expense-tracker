@@ -1,15 +1,16 @@
-.NewItem__container {
-}
 .NewItem__container form {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   font-size: 2rem;
-  border: 1px solid black;
   padding: 10px;
 }
 .NewItem__container form .Count {
   width: 50px;
+}
+.NewItem__container .Inputs__container {
+  display: flex;
+  justify-content: space-between;
+}
+.NewItem__container .Inputs__container .Detail {
+  width: 150px;
 }
 .NewItem__container form .Price__container {
   display: flex;
@@ -18,4 +19,20 @@
 }
 .NewItem__container form .Price__container input {
   width: 50px;
+}
+.NewItem__container .SendButtons__container {
+  display: flex;
+  gap: 2px;
+  justify-content: space-between;    
+}
+.NewItem__container .SendButtons__container button {
+  padding: 3px;
+  font-size: 2rem;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.NewItem__container .Category option:nth-child(10){
+  color: green;
+  font-weight: bold;
+
 }

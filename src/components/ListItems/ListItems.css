@@ -1,0 +1,27 @@
+.ListItems__container {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr;
+  color: gray;
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+  font-size: 2rem;
+}
+.ListItems__container .ItemIcon__container {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  padding: 4px;
+  background-color: lightgray;
+}
+.ListItems__container img {
+  width: 100%;
+}
+.Detail__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ListItems__container .Detail__container span:nth-child(2) {
+  font-size: 1.5rem;
+}
