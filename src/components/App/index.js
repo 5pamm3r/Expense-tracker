@@ -1,10 +1,11 @@
 import React from "react";
-import Pasivos from '../Pasivos'
-import ItemPasivo from "../ItemPasivo";
+import Header from "../Header";
+import ListItems from "../ListItems";
 import NewItem from "../NewItem";
 import useRegister from "./useRegister";
 import CategoryProgress from "../CategoryProgress";
 import Graphics from "../Graphics";
+import List from "../List";
 
 function App() {
   const {
@@ -18,21 +19,27 @@ function App() {
     date,
     detail,
     categories,
+    category,
     price,
+    onIncome,
+    onExpense,
+    income,
+    expense,
   } = useRegister();
   return (
     <div className="App">
-      <Pasivos
+      <Header items={items} total={total} income={income} expense={expense} />
+      <List
         items={items}
-        total={total}
         render={(item) => (
-          <ItemPasivo
+          <ListItems
             key={Math.floor(Math.random() * 1000000)}
             image={item.categoryImg}
             date={item.date}
             detail={item.detail}
             category={item.category}
             price={item.price}
+            status={item.status}
           />
         )}
       >
@@ -43,21 +50,24 @@ function App() {
           onChangeDetail={onChangeDetail}
           onChangeCategory={onChangeCategory}
           categories={categories}
+          category={category}
           price={price}
           onChangePrice={onChangePrice}
           error={error}
+          onIncome={onIncome}
+          onExpense={onExpense}
         />
-        <Graphics
-          categories={categories}
-          render={(cat) => (
-            <CategoryProgress
-              key={cat.value}
-              progressName={cat.value}
-              progressValue={(cat.count * 100) / total || 0}
-            />
-          )}
-        />
-      </Pasivos>
+      </List>
+      <Graphics
+        categories={categories}
+        render={(cat) => (
+          <CategoryProgress
+            key={cat.value}
+            progressName={cat.value}
+            progressValue={(cat.count * 100) / expense || 0}
+          />
+        )}
+      />
     </div>
   );
 }
