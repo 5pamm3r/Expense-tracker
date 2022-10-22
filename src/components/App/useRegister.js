@@ -3,21 +3,49 @@ import { CATEGORIES } from "../Categories";
 
 
 function useRegister() {
-  
-  const [items, setItems] = React.useState([]);
+  //item local storage
+  const itemsLocalStorage = localStorage.getItem('EXPENSE-TRACKER_V1');
+  let parsedItem;
+  if(!itemsLocalStorage) {
+    localStorage.setItem('EXPENSE-TRACKER_V1', JSON.stringify([]))
+    parsedItem = []
+  } else {
+    parsedItem = JSON.parse(itemsLocalStorage)
+  }
+  const saveItems = (newItem) => {
+    const strg = JSON.stringify(newItem)
+    localStorage.setItem('EXPENSE-TRACKER_V1', strg)
+    setItems(newItem)
+  }
+  const [items, setItems] = React.useState(parsedItem)
+
+  //category local storage
+  const catLocalStorage = localStorage.getItem("EXPENSE-TRACKER-CAT_V1");
+  let parsedCategory;
+  if (!catLocalStorage) {
+    localStorage.setItem("EXPENSE-TRACKER-CAT_V1", JSON.stringify(CATEGORIES));
+    parsedCategory = CATEGORIES;
+  } else {
+    parsedCategory = JSON.parse(catLocalStorage);
+  }
+  const saveCategories = (newCategory) => {
+    const strg = JSON.stringify(newCategory);
+    localStorage.setItem("EXPENSE-TRACKER-CAT_V1", strg);
+    setCategories(newCategory);
+  };
+  const [categories, setCategories] = React.useState(parsedCategory);
+
   const [total, setTotal] = React.useState(0);
   const [detail, setDetail] = React.useState("");
   const [category, setCategory] = React.useState("");
   const [price, setPrice] = React.useState("");
   const [error, setError] = React.useState(false);
-  const [categories, setCategories] = React.useState(CATEGORIES);
   const [categoryImg, setCategoryImg] = React.useState('')
   const [income, setIncome] = React.useState(0)
   const [expense, setExpense] = React.useState(0)
   const [statusSelected, setStatusSelected] = React.useState('')
 
   React.useEffect(() => {
-    //mejorar
     totalIncome()
     totalExpense()
     setTotal(income - expense);
@@ -38,18 +66,18 @@ function useRegister() {
         detail: detail,
         category: category,
         categoryImg: categoryImg,
-        price: parseInt(price),
+        price: parseFloat(price),
         status: statusSelected
       });
       categories.forEach((el) => {
         if (el.value === category) {
           const index = categories.findIndex(elem=>elem===el);
           const newCat = [...categories];
-          newCat[index].count +=  parseInt(price);
-          setCategories(newCat);
+          newCat[index].count +=  parseFloat(price);
+          saveCategories(newCat);
         }
       });
-      setItems(newArr);
+      saveItems(newArr);
       setDetail("");
       setPrice("");
       document.querySelector("#category").value = "DEFAULT";
@@ -58,6 +86,18 @@ function useRegister() {
       setError(true);
     }
   };
+  const onDeleteItems = (id) => {
+    const index = items.findIndex(e=>e.id === id)
+    const allItems = [...items]
+    allItems.splice(index, 1)
+    saveItems(allItems)
+  }
+  const onRemoveCountCategory = (categoryName, price) => {
+    const index = categories.findIndex(e=>e.value === categoryName)
+    const allCategories = [...categories]
+    allCategories[index].count = allCategories[index].count - price;
+    saveCategories(allCategories)
+  }
   const onChangeDetail = (e) => {
     setDetail(e.target.value);
   };
@@ -100,9 +140,6 @@ function useRegister() {
     })
     setExpense(count)
   }
-  // const onDelete = (id) => {
-  //   const index = items.findIndex(e=>e.)
-  // }
   return {
     error,
     onSubmit,
@@ -121,6 +158,8 @@ function useRegister() {
     onExpense,
     income,
     expense,
+    onDeleteItems,
+    onRemoveCountCategory
   };
 }
 
