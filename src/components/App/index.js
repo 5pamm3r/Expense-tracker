@@ -25,6 +25,8 @@ function App() {
     onExpense,
     income,
     expense,
+    onDeleteItems,
+    onRemoveCountCategory
   } = useRegister();
   return (
     <div className="App">
@@ -34,17 +36,19 @@ function App() {
         render={(item) => (
           <ListItems
             key={Math.floor(Math.random() * 1000000)}
+            id={Math.floor(Math.random() * 1000000)}
             image={item.categoryImg}
             date={item.date}
             detail={item.detail}
             category={item.category}
             price={item.price}
             status={item.status}
+            onDeleteItems={()=>onDeleteItems(item.id)}
+            onRemoveCountCategory={()=>onRemoveCountCategory(item.category, item.price)}
           />
         )}
       >
         <NewItem
-          date={date}
           detail={detail}
           onSubmit={onSubmit}
           onChangeDetail={onChangeDetail}
@@ -60,13 +64,17 @@ function App() {
       </List>
       <Graphics
         categories={categories}
-        render={(cat) => (
-          <CategoryProgress
-            key={cat.value}
-            progressName={cat.value}
-            progressValue={(cat.count * 100) / expense || 0}
-          />
-        )}
+        render={(cat) => {
+          if (cat.value !== "salary") {
+            return (
+              <CategoryProgress
+                key={cat.value}
+                progressName={cat.value}
+                progressValue={(cat.count * 100) / expense || 0}
+              />
+            );
+          }
+        }}
       />
     </div>
   );
