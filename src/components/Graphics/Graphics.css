@@ -1,5 +1,5 @@
 .Graphics__container {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .Graphics__container .Graphics-button {
   display: block;
@@ -7,9 +7,15 @@
   font-size: 1.8rem;
   border-radius: 10px;
   background: transparent;
+  padding: 8px;
+  cursor: pointer;
+  background-color: #9f6dfc;
+  color: white;
+  font-weight: bold;
+  
 }
 .ItemsGraphics__container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
+  overflow: scroll;
+  white-space: nowrap;
+  margin: 20px 0;
 }

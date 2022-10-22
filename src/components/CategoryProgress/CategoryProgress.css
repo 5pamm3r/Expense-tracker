@@ -1,13 +1,12 @@
 .Progress__circle {
-  /* background: radial-gradient(white 50%, transparent 51%),
-    conic-gradient(transparent 0deg 0deg, gainsboro 0deg 0deg),
-    conic-gradient(orange 0deg, yellow 0deg, lightgreen 0deg, green); */
   border-radius: 50%;
   width: 120px;
   height: 120px;
   transition: all 500ms ease-in;
   will-change: transform;
   position: relative;
+  display: inline-block;
+  margin: 0 10px;
 }
 .Progress__title {
   display: grid;

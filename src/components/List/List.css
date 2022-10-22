@@ -1,6 +1,9 @@
 .List__container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  overflow: scroll;
+  height: 50vh;
   gap: 5px;
   text-align: center;
   font-size: 2rem;

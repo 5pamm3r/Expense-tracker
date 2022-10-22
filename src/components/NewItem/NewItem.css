@@ -1,6 +1,7 @@
 .NewItem__container form {
   font-size: 2rem;
   padding: 10px;
+  border: 1px solid #cbcbcb;
 }
 .NewItem__container form .Count {
   width: 50px;
@@ -11,6 +12,7 @@
 }
 .NewItem__container .Inputs__container .Detail {
   width: 150px;
+  padding-left: 2px;
 }
 .NewItem__container form .Price__container {
   display: flex;
@@ -24,12 +26,16 @@
   display: flex;
   gap: 2px;
   justify-content: space-between;    
+  margin-top: 10px;
 }
 .NewItem__container .SendButtons__container button {
   padding: 3px;
   font-size: 2rem;
   border-radius: 10px;
-  margin-top: 10px;
+}
+.NewItem__container .SendButtons__container .Expense-button {
+  background: #9f6dfc;
+  /* color: white; */
 }
 .NewItem__container .Category option:nth-child(10){
   color: green;
