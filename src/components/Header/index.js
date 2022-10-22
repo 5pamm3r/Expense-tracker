@@ -16,9 +16,11 @@ function Header({total, income, expense }) {
   },[total])
   return (
     <div className="Header">
+      <div className="circle-container"></div>
+      <div className="circle2-container"></div>
       <div className="Balance__container">
         <span>CURRENT BALANCE</span>
-        <span className="Total-balance" id="totalBalance">${total}</span>
+        <span className="Total-balance" id="totalBalance">${parseFloat(total).toFixed(2)}</span>
         <span>{date}</span>
       </div>
       <div className="IncomeExpense__container">
@@ -26,13 +28,13 @@ function Header({total, income, expense }) {
           <div className="IncomeImg__container">
             <img src={icon} alt="income" title="Income" />
           </div>
-          <span>${income}</span>
+          <span>${parseFloat(income).toFixed(2)}</span>
         </div>
         <div className="Expense__container">
           <div className="ExpenseImg__container">
             <img src={icon}  alt="expense" title="Expense"/>
           </div>
-          <span>${expense}</span>
+          <span>${parseFloat(expense).toFixed(2)}</span>
         </div>
       </div>
     </div>
