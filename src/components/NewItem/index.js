@@ -3,7 +3,6 @@ import "./NewItem.css";
 
 function NewItem({
   onSubmit,
-  date,
   detail,
   onChangeDetail,
   onChangeCategory,
@@ -18,21 +17,29 @@ function NewItem({
   React.useEffect(() => {
     if (category === "salary") {
       document.getElementById("incomeBtn").disabled = false;
+      document.getElementById('expenseBtn').disabled = true;
+      document.getElementById('incomeBtn').style.cursor = 'pointer'
+      document.getElementById('expenseBtn').style.cursor = 'auto'
+      document.getElementById('incomeBtn').style.backgroundColor = '#9f6dfc'
+      document.getElementById('expenseBtn').style.backgroundColor = 'transparent'
     } else {
       document.getElementById("incomeBtn").disabled = true;
+      document.getElementById('expenseBtn').disabled = false;
+      document.getElementById('expenseBtn').style.cursor = 'pointer'
+      document.getElementById('incomeBtn').style.cursor = 'auto'
+      document.getElementById('incomeBtn').style.backgroundColor = 'transparent';
+      document.getElementById('expenseBtn').style.backgroundColor = '#9f6dfc'
+
     }
   }, [category]);
   return (
     <div className="NewItem__container">
       <form onSubmit={onSubmit}>
-        {/* <div className="Date__container">
-          <span id="date">{date}</span>
-        </div> */}
         <div className="Inputs__container">
           <input
             className="Detail"
             id="detail"
-            placeholder="Type here..."
+            placeholder="Description..."
             value={detail}
             onChange={onChangeDetail}
             required
@@ -63,6 +70,7 @@ function NewItem({
             <input
               id="price"
               placeholder="0"
+              type='number'
               value={price}
               onChange={onChangePrice}
               required
@@ -77,7 +85,7 @@ function NewItem({
           >
             Income
           </button>
-          <button className="Expense-button" onClick={onExpense}>
+          <button className="Expense-button" id="expenseBtn" onClick={onExpense}>
             Expense
           </button>
         </div>
