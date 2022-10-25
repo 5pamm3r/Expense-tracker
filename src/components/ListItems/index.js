@@ -12,7 +12,7 @@ function ListItems({
   onDeleteItems,
   onRemoveCountCategory,
 }) {
-  const [className, setClassName] = React.useState('')
+  const [className, setClassName] = React.useState("");
 
   const changeColor = () => {
     if (status === "income") {
@@ -22,25 +22,37 @@ function ListItems({
     }
   };
   const onClick = () => {
-    if(className !== ''){
-      setClassName('')
+    if (className !== "") {
+      setClassName("");
     } else {
-      setClassName('item-selected')
+      setClassName("item-selected");
     }
-    // onDeleteItems();
-    // onRemoveCountCategory();
+  };
+  const onDelete = () => {
+    //no funciona bien el delete. Borra otra cosa.
+    onRemoveCountCategory();
+    onDeleteItems();
   };
   return (
-    <div className={`ListItems__container ${className}`} id={id} onClick={onClick}>
-      <div className="ItemIcon__container">
-        <img src={image} alt="category representation" title={category} />
+    <div
+      className='ListItems__container'
+      id={id}
+      onClick={onClick}
+    >
+      <div className={`List-item ${className}`}>
+        <div className="ItemIcon__container">
+          <img src={image} alt="category representation" title={category} />
+        </div>
+        <div className="Date__container">
+          <span>{category}</span>
+          <span>{date}</span>
+        </div>
+        <span>{detail}</span>
+        <span style={changeColor()}>${parseFloat(price).toFixed(2)}</span>
       </div>
-      <div className="Date__container">
-        <span>{category}</span>
-        <span>{date}</span>
-      </div>
-      <span>{detail}</span>
-      <span style={changeColor()}>${parseFloat(price).toFixed(2)}</span>
+      <button className={`Delete-button ${!!className && 'Button-visible'}`} onClick={onDelete}>
+        X
+      </button>
     </div>
   );
 }
