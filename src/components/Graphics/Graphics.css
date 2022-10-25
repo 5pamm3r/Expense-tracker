@@ -17,5 +17,13 @@
 .ItemsGraphics__container {
   overflow: scroll;
   white-space: nowrap;
+  transition: opacity, margin 1s;
+  transition-timing-function: ease-in-out;
+}
+.ItemsGraphics__container.false {
+  opacity: 0;
+}
+.ItemsGraphics__container.true {
+  opacity: 1;
   margin: 20px 0;
 }
