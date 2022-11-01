@@ -13,6 +13,7 @@ function ListItems({
   onRemoveCountCategory,
 }) {
   const [className, setClassName] = React.useState("");
+  const [deleteActive, setDeleteActive] = React.useState('')
 
   const changeColor = () => {
     if (status === "income") {
@@ -29,13 +30,15 @@ function ListItems({
     }
   };
   const onDelete = () => {
-    //no funciona bien el delete. Borra otra cosa.
-    onRemoveCountCategory();
-    onDeleteItems();
+    setDeleteActive('active')
+    setTimeout(()=>{
+      onRemoveCountCategory();
+      onDeleteItems();
+    }, 500)
   };
   return (
     <div
-      className='ListItems__container'
+      className={`ListItems__container ${deleteActive}`}
       id={id}
       onClick={onClick}
     >
