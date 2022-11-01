@@ -36,7 +36,7 @@ function App() {
         render={(item) => (
           <ListItems
             key={Math.floor(Math.random() * 1000000)}
-            id={Math.floor(Math.random() * 1000000)}
+            id={item.id}
             image={item.categoryImg}
             date={item.date}
             detail={item.detail}
