@@ -63,6 +63,7 @@ function useRegister() {
       const newArr = [...items];
       newArr.push({
         date: date,
+        id: date+detail+price,
         detail: detail,
         category: category,
         categoryImg: categoryImg,
