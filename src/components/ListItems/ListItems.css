@@ -1,10 +1,15 @@
 .ListItems__container {
   display: flex;
   align-items: center;
+  position: relative;
+  transition: transform .5s;
+}
+.ListItems__container.active {
+  transform: scale(0);
 }
 .ListItems__container .List-item {
   display: grid;
-  grid-template-columns: auto 1fr 1fr 1fr;
+  grid-template-columns: auto 1fr 1fr 120px;
   color: gray;
   align-items: center;
   padding: 5px;
@@ -34,11 +39,14 @@
   transform: translateX(-40px);
 }
 .ListItems__container .Delete-button {
-  width: 20px;
-  height: 20px;
+  position: absolute;
+  width: 30px;
   font-weight: bold;
   color: red;
   font-size: 2rem;
+  background: none;
+  border: none;
+  right: 10px;
   display: none;
 }
 .ListItems__container .Button-visible {
