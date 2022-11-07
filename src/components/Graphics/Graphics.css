@@ -1,24 +1,14 @@
 .Graphics__container {
-  margin-top: 20px;
-}
-.Graphics__container .Graphics-button {
-  display: block;
-  margin: 0 auto;
-  font-size: 1.8rem;
-  border-radius: 10px;
-  background: transparent;
-  padding: 8px;
-  cursor: pointer;
-  background-color: #9f6dfc;
-  color: white;
-  font-weight: bold;
-  
+  padding-top: 10px;
+  background-color: #222328;
+  position: relative;
 }
 .ItemsGraphics__container {
-  overflow: scroll;
-  white-space: nowrap;
+  position: absolute;
+  height: 100%;
   transition: opacity, margin 1s;
   transition-timing-function: ease-in-out;
+  transition-delay: .5s;
 }
 .ItemsGraphics__container.false {
   opacity: 0;
@@ -26,4 +16,7 @@
 .ItemsGraphics__container.true {
   opacity: 1;
   margin: 20px 0;
+  overflow: scroll;
+  white-space: nowrap;
+  width: 100%;
 }
