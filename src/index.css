@@ -9,8 +9,10 @@ html {
 }
 
 body {
-  /* height: 100vh; */
+  height: 100vh;
   width: 100vw;
+  /* overflow-y: hidden; */
+  position: relative;
 }
 #root {
   overflow-x: hidden;
@@ -18,9 +20,10 @@ body {
 
 @media (min-width: 600px) {
   body {
+    height: 100%;
     border: 4px solid black;
     border-radius: 20px;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
   }
 }
