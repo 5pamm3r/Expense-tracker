@@ -1,11 +1,14 @@
 import React from "react";
 import Header from "../Header";
 import ListItems from "../ListItems";
-import NewItem from "../NewItem";
 import useRegister from "./useRegister";
 import CategoryProgress from "../CategoryProgress";
 import Graphics from "../Graphics";
 import List from "../List";
+import FormNewItem from "../FormNewItem";
+import Modal from "../Modal";
+import TabBar from "../TabBar";
+import './App.css'
 
 function App() {
   const {
@@ -16,7 +19,6 @@ function App() {
     onChangePrice,
     total,
     items,
-    date,
     detail,
     categories,
     category,
@@ -26,13 +28,20 @@ function App() {
     income,
     expense,
     onDeleteItems,
-    onRemoveCountCategory
+    onRemoveCountCategory,
+    openItemModal,
+    setOpenItemModal,
+    activeCategory,
+    setActiveCategory,
+    showGraphics,
+    setShowGraphics,
   } = useRegister();
   return (
     <div className="App">
       <Header items={items} total={total} income={income} expense={expense} />
       <List
         items={items}
+        activeCategory={activeCategory}
         render={(item) => (
           <ListItems
             key={Math.floor(Math.random() * 1000000)}
@@ -43,27 +52,16 @@ function App() {
             category={item.category}
             price={item.price}
             status={item.status}
-            onDeleteItems={()=>onDeleteItems(item.id)}
-            onRemoveCountCategory={()=>onRemoveCountCategory(item.category, item.price)}
+            onDeleteItems={() => onDeleteItems(item.id)}
+            onRemoveCountCategory={() =>
+              onRemoveCountCategory(item.category, item.price)
+            }
           />
         )}
-      >
-        <NewItem
-          detail={detail}
-          onSubmit={onSubmit}
-          onChangeDetail={onChangeDetail}
-          onChangeCategory={onChangeCategory}
-          categories={categories}
-          category={category}
-          price={price}
-          onChangePrice={onChangePrice}
-          error={error}
-          onIncome={onIncome}
-          onExpense={onExpense}
-        />
-      </List>
+      ></List>
       <Graphics
         categories={categories}
+        showGraphics={showGraphics}
         render={(cat) => {
           if (cat.value !== "salary") {
             return (
@@ -76,6 +74,33 @@ function App() {
           }
         }}
       />
+      {/* <NewItemButton setOpenItemModal={setOpenItemModal} /> */}
+      {
+        <TabBar
+          setOpenItemModal={setOpenItemModal}
+          activeCategory={activeCategory}
+          setActiveCategory={setActiveCategory}
+          showGraphics={showGraphics}
+          setShowGraphics={setShowGraphics}
+        />
+      }
+      {!!openItemModal && (
+        <Modal setOpenItemModal={setOpenItemModal}>
+          <FormNewItem
+            detail={detail}
+            onSubmit={onSubmit}
+            onChangeDetail={onChangeDetail}
+            onChangeCategory={onChangeCategory}
+            categories={categories}
+            category={category}
+            price={price}
+            onChangePrice={onChangePrice}
+            error={error}
+            onIncome={onIncome}
+            onExpense={onExpense}
+          />
+        </Modal>
+      )}
     </div>
   );
 }
