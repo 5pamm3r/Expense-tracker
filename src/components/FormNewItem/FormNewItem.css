@@ -1,0 +1,82 @@
+.FormNewItem__container {
+  padding: 20px 20px 20px 20px;
+  border-radius: 20px;
+  background-color: white;
+  position: relative;
+}
+.FormNewItem__container p {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.FormNewItem__container form {
+  font-size: 2rem;
+  /* padding: 10px; */
+  /* border: 1px solid #cbcbcb; */
+}
+.FormNewItem__container form .Count {
+  width: 50px;
+  padding-left: 2px;
+}
+.FormNewItem__container .Inputs__container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0;
+}
+.FormNewItem__container .Inputs__container .Description {
+  width: 150px;
+  padding-left: 2px;
+}
+.FormNewItem__container .SendButtons__container {
+  display: flex;
+  gap: 2px;
+  justify-content: space-between;    
+  margin-top: 20px;
+}
+.FormNewItem__container .SendButtons__container button {
+  padding: 3px;
+  font-size: 2rem;
+  border-radius: 10px;
+  z-index: 2;
+}
+.FormNewItem__container .SendButtons__container .Expense-button.true {
+  color: black;
+  background: white;
+  cursor: pointer;
+}
+.FormNewItem__container .SendButtons__container .Expense-button.false {
+  cursor: auto;
+  background-color: transparent;
+}
+.FormNewItem__container .SendButtons__container .Expense-button.true:hover {
+  color: white;
+  background: black;
+}
+.FormNewItem__container .SendButtons__container .Income-button.true {
+  color: black;
+  background: white;
+  cursor: pointer;
+}
+.FormNewItem__container .SendButtons__container .Income-button.false {
+  cursor: auto;
+  background: transparent;
+}
+.FormNewItem__container .SendButtons__container .Income-button.true:hover {
+  background: black;
+  color: white;
+}
+.FormNewItem__container .Category option:nth-child(10){
+  color: green;
+  font-weight: bold;
+
+}
+.FormNewItem__container .Dark-background {
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #F5F4F7;
+  border-radius: 0 0 20px 20px;
+}
