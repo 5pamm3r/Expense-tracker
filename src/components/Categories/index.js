@@ -5,7 +5,8 @@ import healthyIcon from '../../assets/icons/healthy.png';
 import clothesIcon from '../../assets/icons/clothes.png';
 import entertainmentIcon from '../../assets/icons/entertainment.png';
 import othersIcon from '../../assets/icons/others.png';
-import salaryIcon from '../../assets/icons/salary.png'
+import salaryIcon from '../../assets/icons/salary.png';
+import service from '../../assets/icons/service.png';
 
 export const CATEGORIES = [
   {
@@ -37,6 +38,11 @@ export const CATEGORIES = [
     value: "entertainment",
     count: 0,
     image: entertainmentIcon,
+  },
+  {
+    value: "service",
+    count: 0,
+    image: service,
   },
   {
     value: "others",
