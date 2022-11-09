@@ -43,6 +43,9 @@
 .TabBar__container ul li.true a .icon {
   transform: translateY(-35px);
 }
+.TabBar__container ul li.true:hover a .icon {
+  transform: scale(1.1) translateY(-30px);
+}
 .TabBar__container ul li a .Text {
  position: absolute;
  font-weight: 400;
@@ -70,7 +73,7 @@
 .indicator::before {
   content: '';
   position: absolute;
-  top: 56%;
+  top: 54%;
   left: -22px;
   width: 20px;
   height: 20px;
@@ -81,7 +84,7 @@
 .indicator::after {
   content: '';
   position: absolute;
-  top: 56%;
+  top: 54%;
   right: -22px;
   width: 20px;
   height: 20px;
