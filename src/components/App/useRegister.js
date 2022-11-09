@@ -81,9 +81,9 @@ function useRegister() {
     e.preventDefault();
     if (e.target[1].value !== "DEFAULT") {
       const newArr = [...items];
-      newArr.push({
+      newArr.unshift({
         date: date,
-        id: date + detail + price,
+        id: date.toString() + detail.toString() + price.toString(),
         detail: detail,
         category: category,
         categoryImg: categoryImg,
