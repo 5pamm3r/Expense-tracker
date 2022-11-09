@@ -12,7 +12,7 @@ function ListItems({
   onDeleteItems,
   onRemoveCountCategory,
 }) {
-  const [className, setClassName] = React.useState("");
+  const [listClassName, setListClassName] = React.useState("");
   const [deleteActive, setDeleteActive] = React.useState('')
 
   const changeColor = () => {
@@ -23,10 +23,10 @@ function ListItems({
     }
   };
   const onClick = () => {
-    if (className !== "") {
-      setClassName("");
+    if (listClassName !== "") {
+      setListClassName("");
     } else {
-      setClassName("item-selected");
+      setListClassName("item-selected");
     }
   };
   const onDelete = () => {
@@ -42,7 +42,7 @@ function ListItems({
       id={id}
       onClick={onClick}
     >
-      <div className={`List-item ${className}`}>
+      <div className={`List-item ${listClassName}`}>
         <div className="ItemIcon__container">
           <img src={image} alt="category representation" title={category} />
         </div>
@@ -53,7 +53,7 @@ function ListItems({
         <span>{detail}</span>
         <span style={changeColor()}>${parseFloat(price).toFixed(2)}</span>
       </div>
-      <button className={`Delete-button ${!!className && 'Button-visible'}`} onClick={onDelete}>
+      <button className={`Delete-button ${!!listClassName && 'Button-visible'}`} onClick={onDelete}>
         X
       </button>
     </div>
