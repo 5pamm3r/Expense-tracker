@@ -41,6 +41,7 @@ function FormNewItem({
             placeholder="Description..."
             value={detail}
             onChange={onChangeDetail}
+            autoFocus
             required
           />
           <input
@@ -68,6 +69,7 @@ function FormNewItem({
             <option value={categories[4].value}>{categories[4].value}</option>
             <option value={categories[5].value}>{categories[5].value}</option>
             <option value={categories[6].value}>{categories[6].value}</option>
+            <option value={categories[7].value}>{categories[7].value}</option>
             <option disabled>----------------------</option>
             <option className="Salary-option" value="salary">
               Salary
