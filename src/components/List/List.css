@@ -28,3 +28,46 @@
   font-size: 2rem;
   font-weight: bold;
 }
+
+
+@media screen and (max-height: 700px) {
+  .List__container.disabled {
+    height: 56vh;
+  }
+  .List__container.active {
+    height: 34vh;
+  }
+}
+@media screen and (min-height: 701px) and (max-height: 740px) {
+  .List__container.disabled {
+    height: 60vh;
+  }
+  .List__container.active {
+    height: 40vh;
+  }
+}
+@media screen and (min-height: 741px) and (max-height: 812px) {
+  .List__container.disabled {
+    height: 64vh;
+  }
+  .List__container.active {
+    height: 45vh;
+  }
+}
+@media screen and (min-height: 813px) and (max-height: 900px) {
+  .List__container.disabled {
+    height: 60vh;
+  }
+  .List__container.active {
+    height: 40vh;
+  }
+}
+@media screen and (min-height: 900px) {
+  .List__container.disabled {
+    height: 68vh;
+  }
+  .List__container.active {
+    height: 50vh;
+  }
+}
+

@@ -6,16 +6,19 @@
 
 html {
   font-size: 62.5%;
+  font-family: 'roboto';
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
-  /* overflow-y: hidden; */
   position: relative;
 }
 #root {
   overflow-x: hidden;
+}
+
+@font-face {
+  font-family: 'roboto';
+  src: url(./assets/fonts/RobotoCondensed-Bold.ttf);
 }
 
 @media (min-width: 600px) {
