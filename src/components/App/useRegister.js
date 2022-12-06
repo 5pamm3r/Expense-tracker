@@ -79,34 +79,37 @@ function useRegister() {
   });
   const onSubmit = (e) => {
     e.preventDefault();
-    if (e.target[1].value !== "DEFAULT") {
-      const newArr = [...items];
-      newArr.unshift({
-        date: date,
-        id: date.toString() + detail.toString() + price.toString(),
-        detail: detail,
-        category: category,
-        categoryImg: categoryImg,
-        price: parseFloat(price),
-        status: statusSelected,
-      });
-      categories.forEach((el) => {
-        if (el.value === category) {
-          const index = categories.findIndex((elem) => elem === el);
-          const newCat = [...categories];
-          newCat[index].count += parseFloat(price);
-          saveCategories(newCat);
-        }
-      });
-      saveItems(newArr);
-      setDetail("");
-      setPrice("");
-      setOpenItemModal((prevState) => !prevState);
-      document.querySelector("#category").value = "DEFAULT";
-      setError(false);
-    } else {
+    if (e.target[2].value === "DEFAULT") {
+      console.log('dentro')
       setError(true);
+      return
     }
+    console.log('pasa igual')
+    const newArr = [...items];
+    newArr.unshift({
+      date: date,
+      id: date.toString() + detail.toString() + price.toString(),
+      detail: detail,
+      category: category,
+      categoryImg: categoryImg,
+      price: parseFloat(price),
+      status: statusSelected,
+    });
+    categories.forEach((el) => {
+      if (el.value === category) {
+        const index = categories.findIndex((elem) => elem === el);
+        const newCat = [...categories];
+        newCat[index].count += parseFloat(price);
+        saveCategories(newCat);
+      }
+    });
+    saveItems(newArr);
+    setDetail("");
+    setPrice("");
+    setOpenItemModal((prevState) => !prevState);
+    document.querySelector("#category").value = "DEFAULT";
+    setError(false);
+
   };
   const onDeleteItems = (id) => {
     const index = items.findIndex((e) => e.id === id);
