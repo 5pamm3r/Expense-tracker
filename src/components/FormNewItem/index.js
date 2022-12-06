@@ -75,6 +75,11 @@ function FormNewItem({
               Salary
             </option>
           </select>
+          {!!error && (
+            <p className="Error-category">
+              Select category
+            </p>
+          )}
         </div>
         <div className="SendButtons__container">
           <button
@@ -93,11 +98,7 @@ function FormNewItem({
           </button>
         </div>
       </form>
-      {!!error && (
-        <p className="Error-category" style={{ color: "red" }}>
-          Select category
-        </p>
-      )}
+
       <div className="Dark-background"></div>
     </div>
   );
