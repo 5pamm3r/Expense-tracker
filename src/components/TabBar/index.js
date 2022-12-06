@@ -1,7 +1,7 @@
 import React from 'react'
 import homeImg from '../../assets/icons/home.png'
 import plusImg from '../../assets/icons/plus.png'
-import categoryImg from '../../assets/icons/category.png'
+import graphicsImg from '../../assets/icons/graphics.png'
 import './TabBar.css'
 function TabBar({setOpenItemModal, activeCategory, setActiveCategory, showGraphics, setShowGraphics}) {
   const [activeHome, setActiveHome] = React.useState(false);
@@ -54,7 +54,7 @@ function TabBar({setOpenItemModal, activeCategory, setActiveCategory, showGraphi
         </li>
         <li className={`List ${activeCategory}`} onClick={onClickCategory}>
           <a href="#/">
-            <img src={categoryImg} alt='category' className='icon'/>
+            <img src={graphicsImg} alt='category' className='icon'/>
             <span className="Text">Graphics</span>
           </a>
           <div className={`indicator ${activeCategory}`}></div>
