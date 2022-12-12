@@ -8,3 +8,8 @@
   display: grid;
   place-items: center;
 }
+@media (max-width: 600px) {
+  .Modal__container {
+    top: -200px;
+  }
+}

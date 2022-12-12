@@ -20,6 +20,7 @@
   width: 70px;
   height: 70px;
   z-index: 1;
+  cursor: pointer;
 }
 .TabBar__container ul li a {
   position: relative;
@@ -41,13 +42,13 @@
 .TabBar__container ul li.true a .icon {
   transform: translateY(-31px);
 }
-.TabBar__container ul li.true:hover a .icon {
+/* .TabBar__container ul li.true:hover a .icon {
   transform: scale(1.1) translateY(-28px);
 }
 .TabBar__container ul li:nth-child(3).true:hover a .icon {
   transform: scale(1.1) translateY(-28.5px) translateX(-.5px);
 
-}
+} */
 .TabBar__container ul li a .Text {
  position: absolute;
  font-weight: 400;
