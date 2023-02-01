@@ -69,8 +69,8 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: aqua;
-  border: 6px solid #222328;
+  background-color: #0aebeb;
+  border: 6px solid #3f0071;
   transition: transform .4s;
 }
 .indicator::before {
@@ -82,7 +82,7 @@
   height: 20px;
   background: transparent;
   border-top-right-radius: 20px;
-  box-shadow: 0 -10px 0 0 #222328;
+  box-shadow: 0 -10px 0 0 #3f0071;
 }
 .indicator::after {
   content: '';
@@ -93,7 +93,7 @@
   height: 20px;
   background: transparent;
   border-top-left-radius: 20px;
-  box-shadow: 0 -10px 0 0 #222328;
+  box-shadow: 0 -10px 0 0 #3f0071;
 }
 .TabBar__container ul li:nth-child(1).true ~ .indicator {
   transform: translateX(calc(70px * 0));
