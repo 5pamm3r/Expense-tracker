@@ -80,11 +80,9 @@ function useRegister() {
   const onSubmit = (e) => {
     e.preventDefault();
     if (e.target[2].value === "DEFAULT") {
-      console.log('dentro')
       setError(true);
       return
     }
-    console.log('pasa igual')
     const newArr = [...items];
     newArr.unshift({
       date: date,
